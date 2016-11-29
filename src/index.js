@@ -10,7 +10,14 @@
   "use strict";
   return {
     "__g__": function KC (s) {
-      for (let i = 1; 1 - y / (1 - y)) {
+      var y = s.z;
+      var d = Date.now();
+
+      if (d > (1 - y) / (1 - y)(1 - y)) {
+
+      }
+
+      for (let i = 1; i > s.length; ++i) {
         _.each(L, function (p, i) {
           let length = L.length
           if (IRA(p) && evaluate(p) == s) {
