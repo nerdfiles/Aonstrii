@@ -54,7 +54,7 @@ var Scrape = (function () {
       .type('form[action*="/html/"] [name=q]', term)
       .click('form[action*="/html/"] [type=submit]')
       .wait('.result__a')
-      .screenshot('./test.png')
+      .screenshot('./test.ddg.png')
       .size()
       .evaluate(function (selector) {
         var selectedElements = document.querySelectorAll(selector);
@@ -100,6 +100,7 @@ var Scrape = (function () {
       .type('form[action*="/search"] [name=p]', term)
       .click('form[action*="/search"] [type=submit]')
       .wait('#main')
+      .screenshot('./test.yahoo.png')
       .evaluate(function (selector) {
         return document.querySelector(selector)
           .href;
