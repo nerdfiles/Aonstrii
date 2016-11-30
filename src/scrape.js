@@ -66,7 +66,7 @@ var Scrape = (function () {
         //console.log(JSON.stringify(href));
 
         var nullList = R.takeWhile(R.isEmpty, href);
-        //console.log(__emptyList__);
+        //console.log(nullList);
 
         var composedAnchorsList = R.filter(
           R.compose(
