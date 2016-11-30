@@ -4,21 +4,22 @@
  * )
  */
 
-let cli = __parser__(function () {/*!
-Usage:
-  ( node ) aon all
-  ( node ) aon get <id>
-  ( node ) aon -h | --help
-  ( node ) aon --version
-*/})
+"use strict";
 
-function __parser__ (f) {
+var __parser__ = function (f) {
   /// @inner
 
   return f.toString().
     replace(/^[^\/]+\/\*!?/, '').
     replace(/\*\/[^\/]+$/, '');
-}
+};
+
+var cli = __parser__(function () {/*!
+Usage:
+  aonstrii search <termType> <termTerm>
+  aonstrii -h | --help
+  aonstrii --version
+*/});
 
 module.exports = cli;
 

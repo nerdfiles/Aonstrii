@@ -1,20 +1,29 @@
-var nightmare = require('nightmare')();
-var selector = 'a';
+/**(
+ * @fileOverview ./index.js
+ * )
+ */
 
-nightmare
-  .goto('http://yahoo.com')
-  .type('form[action*="/search"] [name=p]', 'github nightmare')
-  .click('form[action*="/search"] [type=submit]')
-  .wait('#main')
-  .evaluate(function(selector) {
-    return document
-      .querySelector(selector)
-      .href;
-  }, selector)
-  .then((href) => {
-    console.log('__prying__');
-    eval(pry.it);
-    console.log(href);
-    return nightmare.end();
-  })
-  .then();
+"use strict";
+
+var scrape = require('./src/scrape');
+var cli = require('./src/cli');
+var docopt = require('docopt-js');
+
+
+function __cli__ (config) {
+  //console.log(config);
+
+  if (config['<termTerm>'] && config['<termType>'] === 'ddg') {
+    scrape.ddg(config['<termTerm>']);
+  } else if (config['<termTerm>'] && config['<termType>'] === 'yahoo') {
+    scrape.yahoo(config['<termTerm>']);
+  } else {
+    console.log('No search type or term provided.');
+  }
+}
+
+var initConfig = docopt.docopt(cli, { version: '0.0.1' })
+
+
+module.exports = __cli__(initConfig);
+
