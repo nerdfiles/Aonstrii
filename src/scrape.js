@@ -68,8 +68,14 @@ var Scrape = (function () {
         var nullList = R.takeWhile(R.isEmpty, href);
         //console.log(__emptyList__);
 
-        var composedAnchorsList = R.filter(R.compose(R.flip(R.contains)([1, 2]), R.prop('nodeType')), href);
-        //console.log(anchors);
+        var composedAnchorsList = R.filter(
+          R.compose(
+            R.flip(R.contains)(['html', 'jquery']),
+            R.prop('text')
+          ), href);
+        //console.log(composedAnchorsList);
+
+        var filteredAnchorsList = R.filter(href);
 
         var hrefMap = href.map(function (p) {
           return p;
