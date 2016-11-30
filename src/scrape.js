@@ -92,18 +92,16 @@ var Scrape = (function () {
       })
       .then();
 
-    /*
-     *nightmare
-     *  .goto(baseUrl)
-     *  .type('form[action*="/html/"] [name=q]', term)
-     *  .click('form[action*="/html/"] [type=submit]')
-     *  .wait('.result__a')
-     *  .size()
-     *  .then(function (sized) {
-     *     console.log(sized);
-     *  });
-     */
+  };
 
+  var __sizeup__ = function () {
+    nightmare
+      .goto(baseUrl)
+      .size()
+      .then(function (sized) {
+         console.log(JSON.stringify(sized));
+         return nightmare.end();
+      });
   };
 
   /** @inner
@@ -130,8 +128,9 @@ var Scrape = (function () {
   };
 
   var scraperInterface = {
-    ddg   : __ddg__,
-    yahoo : __yahoo__
+    ddg    : __ddg__,
+    sizeup : __sizeup__,
+    yahoo  : __yahoo__
   };
 
   return scraperInterface;

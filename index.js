@@ -13,6 +13,10 @@ var docopt = require('docopt-js');
 function __cli__ (config) {
   //console.log(config);
 
+  if (config['sizeup']) {
+    return scrape.sizeup();
+  }
+
   if (config['<termTerm>'] && config['<termType>'] === 'ddg') {
     scrape.ddg(config['<termTerm>']);
   } else if (config['<termTerm>'] && config['<termType>'] === 'yahoo') {

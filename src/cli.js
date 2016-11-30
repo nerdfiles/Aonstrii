@@ -17,6 +17,7 @@ var __parser__ = function (f) {
 var cli = __parser__(function () {/*!
 Usage:
   aonstrii search <termType> <termTerm>
+  aonstrii sizeup <termType>
   aonstrii -h | --help
   aonstrii --version
 */});
