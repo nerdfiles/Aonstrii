@@ -55,7 +55,6 @@ var Scrape = (function () {
       .click('form[action*="/html/"] [type=submit]')
       .wait('.result__a')
       .screenshot('./test.ddg.png')
-      .size()
       .evaluate(function (selector) {
         var selectedElements = document.querySelectorAll(selector);
         return Array.prototype.map.call(selectedElements, function (elem) {
@@ -92,6 +91,18 @@ var Scrape = (function () {
         return nightmare.end();
       })
       .then();
+
+    /*
+     *nightmare
+     *  .goto(baseUrl)
+     *  .type('form[action*="/html/"] [name=q]', term)
+     *  .click('form[action*="/html/"] [type=submit]')
+     *  .wait('.result__a')
+     *  .size()
+     *  .then(function (sized) {
+     *     console.log(sized);
+     *  });
+     */
 
   };
 
