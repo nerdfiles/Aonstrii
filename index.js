@@ -12,6 +12,8 @@ nightmare
       .href;
   }, selector)
   .then((href) => {
+    console.log('__prying__');
+    eval(pry.it);
     console.log(href);
     return nightmare.end();
   })
