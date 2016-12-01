@@ -26,8 +26,8 @@ function __cli__ (config) {
   }
 }
 
+
 var initConfig = docopt.docopt(cli, { version: '0.0.1' })
-
-
 module.exports = __cli__(initConfig);
+
 

@@ -9,15 +9,19 @@ const Nightmare = require('nightmare');
 const nightmare = Nightmare({ show: true });
 const fs = require('fs');
 const pry = require('pryjs');
+const R = require('ramda');
+const _ = require('lodash');
+const colors = require('colors');
+
 const domain = 'duckduckgo';
 const tld = 'com';
 const protocol = 'https';
 const sepPath = '://';
 const sepExt = '.';
 const entryPoint = '/html/';
-const R = require('ramda');
-const _ = require('lodash');
-const colors = require('colors');
+const defaultSelector = 'a';
+const baseUrl = protocol + sepPath + domain + sepExt + tld + entryPoint;
+
 
 Nightmare.action('size', function (done) {
 
@@ -35,11 +39,8 @@ Nightmare.action('size', function (done) {
 
 });
 
+
 //eval(pry.it);
-
-const selector = 'a';
-const baseUrl = protocol + sepPath + domain + sepExt + tld + entryPoint;
-
 
 var Scrape = (function () {
 
@@ -119,7 +120,7 @@ var Scrape = (function () {
       .evaluate(function (selector) {
         return document.querySelector(selector)
           .href;
-      }, selector)
+      }, defaultSelector)
       .then((href) => {
         return nightmare.end();
       })
