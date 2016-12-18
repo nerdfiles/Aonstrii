@@ -50,6 +50,28 @@ var Scrape = (function () {
     */
   var __ddg__ = function (term) {
 
+		if (term === 'random passphrase') {
+			nightmare
+				.goto(baseUrl)
+				.type('form[action*="/html/"] [name=q]', term)
+				.click('form[action*="/html/"] [type=submit]')
+				.wait('.zci-wrapper')
+				.screenshot('./test.passphrase.png')
+				.evaluate(function (s) {
+					var passphrase = document.querySelectorAll(s);
+					return Array.prototype.map.call(passphrase, function (elem) {
+						return elem.textContent;
+					});
+				}, '.zci__result')
+				.then((passphrase) => {
+					var randomPassphrase = passphrase.toString().trim().replace(/random\ passphrase:/, '', 'g').rainbow;
+          console.log(randomPassphrase);
+					return nightmare.end();
+				});
+
+			return;
+		}	
+
     nightmare
       .goto(baseUrl)
       .type('form[action*="/html/"] [name=q]', term)

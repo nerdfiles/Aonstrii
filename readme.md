@@ -2,10 +2,11 @@
 
 ## Install
 
-`git clone` and `npm install`.
+    git clone
+    npm install
 
 ## Usage
 
-  $ node index.js search <termType> <searchTerm>
+    $ node index.js search <termType> <searchTerm>
 
-  $ torsocks node index.js search <termType> <searchTerm>
+    $ torsocks node index.js search <termType> <searchTerm>
