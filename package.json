@@ -22,7 +22,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "passphrase": "node index.js search ddg 'random passphrase'"
+    "passphrase": "node index.js search ddg 'random passphrase'",
+    "trumpsays" : "node index.js search ddg 'site:twitter.com donald trump' && cat href.map | say"
   },
   "author": "",
   "license": "ISC"
