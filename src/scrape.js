@@ -83,7 +83,7 @@ var Scrape = (function () {
         return Array.prototype.map.call(selectedElements, function (elem) {
           return elem.text;
         });
-      }, '.result__a')
+      }, '.result__a,.result__snippet')
       .then((href) => {
         //console.log(JSON.stringify(href));
 
